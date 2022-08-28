@@ -13,6 +13,7 @@ class HomeScreen extends StatelessWidget {
       height: 290,
       width: 180,
       child: Card(
+        elevation: 2.0,
         color: Colors.white,
         shadowColor: Color.fromRGBO(184, 184, 184, 1),
         child: Column(
@@ -34,6 +35,7 @@ class HomeScreen extends StatelessWidget {
       height: 80,
       width: 80,
       child: Card(
+        elevation: 2.0,
         color: Colors.white,
         shadowColor: Color.fromRGBO(184, 184, 184, 1),
         child: Column(
@@ -141,6 +143,7 @@ class HomeScreen extends StatelessWidget {
                   height: 260,
                   width: double.infinity,
                   child: Card(
+                    elevation: 2.0,
                     color: Colors.white,
                     shadowColor: Color.fromRGBO(184, 184, 184, 1),
                     child: Padding(
@@ -152,7 +155,7 @@ class HomeScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(right: MediaQuery.of(context).viewInsets.right + 15 ),
+                                padding: EdgeInsets.only(right: MediaQuery.of(context).viewInsets.right + 15, ),
                                 child: Icon(Icons.cancel_outlined, size: 30,),
                               ),
                             ],
@@ -232,13 +235,35 @@ class HomeScreen extends StatelessWidget {
                     .of(context)
                     .viewInsets
                     .top + 25,),
+                
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     famCard(),
                     famCard(),
                   ],
-
+                ),
+                SizedBox(height: MediaQuery
+                    .of(context)
+                    .viewInsets
+                    .top + 25,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    famCard(),
+                    famCard(),
+                  ],
+                ),
+                SizedBox(height: MediaQuery
+                    .of(context)
+                    .viewInsets
+                    .top + 25,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    famCard(),
+                    famCard(),
+                  ],
                 ),
               ],
 
