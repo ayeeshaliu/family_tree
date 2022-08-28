@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class HomeScreen extends StatelessWidget {
   //const HomeScreen({Key? key}) : super(key: key);
 
-  String title;
-  IconData icon;
-
-   HomeScreen(this.title, this.icon);
+  // final String title;
+  // final IconData icon;
+  //
+  //  HomeScreen(this.title, this.icon);
 
   Widget drawCard() {
     return Container(
@@ -16,8 +16,8 @@ class HomeScreen extends StatelessWidget {
         shadowColor: Color.fromRGBO(184, 184, 184, 1),
         child: Column(
           children: [
-            Text("$title"),
-            Icon(icon),
+            // Text("$title"),
+            // Icon(icon),
           ],
         ),
       ),
@@ -51,12 +51,14 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CircleAvatar(
-                    backgroundColor: Colors.grey[400],
+                    child: Icon(Icons.person, color: Colors.black,),
+                    backgroundColor: Color.fromRGBO(245, 245, 245, 1),
                   ),
 
                   CircleAvatar(
+                    child: Icon(Icons.notifications, color: Colors.black,),
                     // backgroundImage: AssetImage("assets/images/iconss/bell.png"),
-                    backgroundColor: Colors.grey[400],
+                    backgroundColor: Color.fromRGBO(245, 245, 245, 1),
                   ),
                 ],
               ),
