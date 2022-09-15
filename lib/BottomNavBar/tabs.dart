@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:family_tree/HomeScreenTab/HomeScreen.dart';
 
-import '../HomeScreenTab/HomeScreen.dart';
 
 
 class Tabs extends StatefulWidget {
@@ -83,6 +83,7 @@ class _TabsState extends State<Tabs> {
 
     );
   }
+
 }
 
 
