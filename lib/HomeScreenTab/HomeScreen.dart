@@ -10,15 +10,7 @@ class HomeScreen extends StatelessWidget {
 
   //
 
-  void selectRecipe(BuildContext ctx) {
-    Navigator.of(ctx).push(
-      MaterialPageRoute(
-        builder: (_) {
-          return allFamilyRecipes();
-        },
-      ),
-    );
-  }
+
 
   Widget drawCard() {
     return Container(
@@ -300,14 +292,24 @@ class HomeScreen extends StatelessWidget {
                 //     ),
                 //   ],
                 // ),
-                GridView(
-                  children:
-                    CardDetails.map((cardData) => buildFamCard(
-                        cardData.image,
-                        cardData.title,
-                        cardData.description)).toList(),
+                SizedBox(
+                  height: MediaQuery.of(context).viewInsets.top + 500,
+                  child: GridView(
+                    children:
+                      CardDetails.map((cardData) => buildFamCard(
+                          cardData.image,
+                          cardData.title,
+                          cardData.description)).toList(),
 
-                    gridDelegate: gridDelegate)
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 2/4,
+                        mainAxisExtent: 300,
+                        crossAxisSpacing: 20,
+                        mainAxisSpacing: 20,
+                      ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -375,19 +377,32 @@ class buildFamCard extends StatelessWidget {
 
   buildFamCard(this.image, this.title, this.description);
 
+  void selectRecipe(BuildContext ctx) {
+    Navigator.of(ctx).push(
+      MaterialPageRoute(
+        builder: (_) {
+          return allFamilyRecipes();
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 218,
-      width: 158,
-      child: Column(
-        children: [
-          SizedBox(height: 30,),
-          Image.asset(image!),
-          Text(title),
-          SizedBox(height: 20,),
-          Text(description),
-        ],
+    return InkWell(
+      onTap: () => selectRecipe(context),
+      child: Container(
+        height: 218,
+        width: 158,
+        child: Column(
+          children: [
+            SizedBox(height: 30,),
+            Image.asset(image!),
+            Text(title),
+            SizedBox(height: 20,),
+            Text(description),
+          ],
+        ),
       ),
     );
   }
