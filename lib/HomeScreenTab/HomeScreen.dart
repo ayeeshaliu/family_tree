@@ -34,6 +34,16 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  void selectRecipe(BuildContext ctx) {
+    Navigator.of(ctx).push(
+      MaterialPageRoute(
+        builder: (_) {
+          return allFamilyRecipes();
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -211,105 +221,106 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                // SizedBox(
-                //   height: MediaQuery.of(context).viewInsets.top + 25,
-                // ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: [
-                //     InkWell(
-                //       onTap: () => selectRecipe(context),
-                //       child: famCard(
-                //         AssetImage("assets/images/famcard/cookbook.png"),
-                //         Text("Family Recipes").toString(),
-                //         Text("This recipe was developed \ "
-                //             "by mama in the old days \ "
-                //             "it is her favourite meal \ "
-                //             "to cook.")
-                //             .toString(),
-                //       ),
-                //     ),
-                //     famCard(
-                //         AssetImage("assets/images/famcard/history.png"),
-                //         Text("Family Recipes").toString(),
-                //       Text("This recipe was developed \ "
-                //           "by mama in the old days \ "
-                //           "it is her favourite meal \ "
-                //           "to cook.")
-                //           .toString(),
-                //     ),
-                //   ],
-                // ),
-                // SizedBox(
-                //   height: MediaQuery.of(context).viewInsets.top + 25,
-                // ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: [
-                //     famCard(
-                //         AssetImage("assets/images/famcard/medicine.png"),
-                //         Text("Family Recipes").toString(),
-                //       Text("This recipe was developed \ "
-                //           "by mama in the old days \ "
-                //           "it is her favourite meal \ "
-                //           "to cook.")
-                //           .toString(),
-                //     ),
-                //
-                //     famCard(AssetImage("assets/images/famcard/religion.png"),
-                //         Text("Family Recipes").toString(),
-                //       Text("This recipe was developed \ "
-                //           "by mama in the old days \ "
-                //           "it is her favourite meal \ "
-                //           "to cook.")
-                //           .toString(),
-                //     ),
-                //   ],
-                // ),
-                // SizedBox(
-                //   height: MediaQuery.of(context).viewInsets.top + 25,
-                // ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: [
-                //     famCard(
-                //       AssetImage("assets/images/famcard/rituals.png"),
-                //       Text("Family Recipes").toString(),
-                //       Text("This recipe was developed \ "
-                //               "by mama in the old days \ "
-                //               "it is her favourite meal \ "
-                //               "to cook.")
-                //           .toString(),
-                //     ),
-                //     famCard(
-                //       AssetImage("assets/images/famcard/tradition.png"),
-                //       Text("Family Recipes").toString(),
-                //       Text("This recipe was developed \ "
-                //               "by mama in the old days \ "
-                //               "it is her favourite meal \ "
-                //               "to cook.")
-                //           .toString(),
-                //     ),
-                //   ],
-                // ),
                 SizedBox(
-                  height: MediaQuery.of(context).viewInsets.top + 500,
-                  child: GridView(
-                    children:
-                      CardDetails.map((cardData) => buildFamCard(
-                          cardData.image,
-                          cardData.title,
-                          cardData.description)).toList(),
-
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        childAspectRatio: 2/4,
-                        mainAxisExtent: 300,
-                        crossAxisSpacing: 20,
-                        mainAxisSpacing: 20,
-                      ),
-                  ),
+                  height: MediaQuery.of(context).viewInsets.top + 25,
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
+                      onTap: () => selectRecipe(context),
+                      child: buildFamCard(
+                        //AssetImage("assets/images/famcard/cookbook.png"),
+                        Text("Family Recipes").toString(),
+                        Text("This recipe was developed \ "
+                            "by mama in the old days \ "
+                            "it is her favourite meal \ "
+                            "to cook.")
+                            .toString(),
+                      ),
+                    ),
+                    buildFamCard(
+                        //AssetImage("assets/images/famcard/history.png"),
+                        Text("Family Recipes").toString(),
+                      Text("This recipe was developed \ "
+                          "by mama in the old days \ "
+                          "it is her favourite meal \ "
+                          "to cook.")
+                          .toString(),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).viewInsets.top + 25,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    buildFamCard(
+                        //AssetImage("assets/images/famcard/medicine.png"),
+                        Text("Family Recipes").toString(),
+                      Text("This recipe was developed \ "
+                          "by mama in the old days \ "
+                          "it is her favourite meal \ "
+                          "to cook.")
+                          .toString(),
+                    ),
+
+                    buildFamCard(
+                      //AssetImage("assets/images/famcard/religion.png"),
+                        Text("Family Recipes").toString(),
+                      Text("This recipe was developed \ "
+                          "by mama in the old days \ "
+                          "it is her favourite meal \ "
+                          "to cook.")
+                          .toString(),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).viewInsets.top + 25,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    buildFamCard(
+                      //AssetImage("assets/images/famcard/rituals.png"),
+                      Text("Family Recipes").toString(),
+                      Text("This recipe was developed \ "
+                              "by mama in the old days \ "
+                              "it is her favourite meal \ "
+                              "to cook.")
+                          .toString(),
+                    ),
+                    buildFamCard(
+                      //Image("assets/images/famcard/tradition.png"),
+                      Text("Family Recipes").toString(),
+                      Text("This recipe was developed \ "
+                              "by mama in the old days \ "
+                              "it is her favourite meal \ "
+                              "to cook.")
+                          .toString(),
+                    ),
+                  ],
+                ),
+                // SizedBox(
+                //   height: MediaQuery.of(context).viewInsets.top + 500,
+                //   child: GridView(
+                //     children:
+                //       CardDetails.map((cardData) => buildFamCard(
+                //           cardData.image,
+                //           cardData.title,
+                //           cardData.description)).toList(),
+                //
+                //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                //         crossAxisCount: 2,
+                //         childAspectRatio: 2/4,
+                //         mainAxisExtent: 300,
+                //         crossAxisSpacing: 20,
+                //         mainAxisSpacing: 20,
+                //       ),
+                //   ),
+                // ),
               ],
             ),
           ),
@@ -323,47 +334,47 @@ class HomeScreen extends StatelessWidget {
 
 
 class famCard{
-  final String ?image;
+  //final ImageData ?image;
   final String title;
   final String description;
 
-  const famCard({  this.image, required this.title, required this.description});
+  const famCard({  required this.title, required this.description});
 
 }
 
 const CardDetails = [
    famCard (
-     image: "assets/images/famcard/cookbook.png",
+     //image: "assets/images/famcard/cookbook.png",
      title: "Family Recipes",
      description: "In this section, you add all your family's generational recipes."
   ),
 
   famCard (
-    image: "assets/images/famcard/cookbook.png",
+    //image: "assets/images/famcard/cookbook.png",
       title: "Family History",
       description: "Get acquainted with the members of your family and past achievements"
   ),
 
   famCard (
-    image: "assets/images/famcard/cookbook.png",
+    //image: "assets/images/famcard/cookbook.png",
       title: "Family Religion",
       description: "Find out what religion your family practise."
   ),
 
   famCard (
-    image: "assets/images/famcard/cookbook.png",
+   // image: "assets/images/famcard/cookbook.png",
       title: "Festive Traditions",
       description: "Memorize important dates for festivities within the family."
   ),
 
   famCard (
-    image: "assets/images/famcard/cookbook.png",
+    //image: "assets/images/famcard/cookbook.png",
       title: "Natural Medicine",
       description: "Documented family remedies and herbs."
   ),
 
   famCard (
-    image: "assets/images/famcard/cookbook.png",
+    //image: "assets/images/famcard/cookbook.png",
       title: "Family Rituals",
       description: "Get informed on the cultures and rituals of the family."
   ),
@@ -371,33 +382,25 @@ const CardDetails = [
 
 
 class buildFamCard extends StatelessWidget {
-  final String ?image;
+  //final String ?image;
   final String title;
   final String description;
 
-  buildFamCard(this.image, this.title, this.description);
+  buildFamCard( this.title, this.description);
 
-  void selectRecipe(BuildContext ctx) {
-    Navigator.of(ctx).push(
-      MaterialPageRoute(
-        builder: (_) {
-          return allFamilyRecipes();
-        },
-      ),
-    );
-  }
+
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => selectRecipe(context),
-      child: Container(
-        height: 218,
-        width: 158,
+    return Container(
+      height: 218,
+      width: 158,
+      child: Card(
+        elevation: 2.0,
         child: Column(
           children: [
             SizedBox(height: 30,),
-            Image.asset(image!),
+            //Image.asset(image!),
             Text(title),
             SizedBox(height: 20,),
             Text(description),
